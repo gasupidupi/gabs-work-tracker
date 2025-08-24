@@ -7,17 +7,19 @@ pip install .
 ```
 
 # usage
-## Add message and ticket number at the end of session
+### Add message and ticket number at the end of session
 ```
 tracker track
 ```
-## Or add them at the start
+### Or add them at the start
 ```
 tracker track -m "Security upgrade" -t "EG-123"
 ```
-## Delete log
+### Delete log
 ```
 tracker clear
 ```
-## Show log
-
+### Show log
+```
+tracker show
+```
