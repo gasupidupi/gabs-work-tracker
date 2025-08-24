@@ -29,3 +29,11 @@ tracker clear
 ```
 tracker show
 ```
+#### Example output
+```
+24/08/2025   08:00   09:00   EG-001   Security upgrade
+
+24/08/2025   09:00   10:00      Daily meeting
+
+24/08/2025   10:00   12:00   EG-002   Wrote tests for hello world functionality
+```
