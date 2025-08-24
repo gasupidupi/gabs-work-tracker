@@ -19,7 +19,7 @@ tracker track
 ```
 ### Or add them at the start
 ```
-tracker track -m "Security upgrade" -t "EG-123"
+tracker track --m "Security upgrade" --t "EG-123"
 ```
 ### Delete log
 ```
