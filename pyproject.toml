@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+
+[project]
+name = "tracker"
+version = "1.0.0"
+description = "A work tracking CLI tool"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+keywords = ["timetracking"]
+authors = [{ name = "Gabriel Schafflützel", email = "gasupidupi@gmail.com" }]
+maintainers = [{ name = "Gabriel Schafflützel", email = "gasupidupi@gmail.com" }]
+dependencies = ["typer", "PyYAML"]
+
+[tool.setuptools.packages.find]
+include = ["tracker"]
+
+[tool.setuptools.package-data]
+"tracker" = ["config.yml"]
+
+[project.urls]
+"Homepage" = "https://github.com/gasupidupi/gabs-work-tracker"
+"Bug Reports" = "https://github.com/gasupidupi/gabs-work-tracker/issues"
+"Source" = "https://github.com/gasupidupi/gabs-work-tracker"
+
+[project.scripts]
+tracker = "tracker.main:run"
