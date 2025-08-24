@@ -9,6 +9,10 @@ pip install .
 ```
 
 # usage
+### Change output directory for tracker log
+```
+tracker config --o path/to/desired/output/dir
+```
 ### Add message and ticket number at the end of session
 ```
 tracker track
