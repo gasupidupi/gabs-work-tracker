@@ -11,7 +11,7 @@ license = "MIT"
 keywords = ["timetracking"]
 authors = [{ name = "Gabriel Schafflützel", email = "gasupidupi@gmail.com" }]
 maintainers = [{ name = "Gabriel Schafflützel", email = "gasupidupi@gmail.com" }]
-dependencies = ["typer", "PyYAML"]
+dependencies = ["typer", "PyYAML", "freezegun"]
 
 [tool.setuptools.packages.find]
 include = ["tracker"]

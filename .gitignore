@@ -211,3 +211,6 @@ env
 
 # gabs-work-tracker
 tracks.csv
+
+# VSCode
+.vscode
