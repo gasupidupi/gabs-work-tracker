@@ -21,6 +21,10 @@ tracker track
 ```
 tracker track --m "Security upgrade" --t "EG-123"
 ```
+### Use the past option to use the last end time as your start time
+```
+tracker track --m "Security upgrade" --t "EG-123" --p
+```
 ### Delete log
 ```
 tracker clear
