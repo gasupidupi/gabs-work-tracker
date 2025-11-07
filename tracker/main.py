@@ -28,6 +28,18 @@ def get_last_track():
             pass
         return line
 
+def remove_last_track():
+    # https://stackoverflow.com/a/10289740
+    with open(os.path.join(config_data["output_directory"], "tracks.csv"), "r") as f:
+        f.seek(0, os.SEEK_END)
+        pos = f.tell() - 1
+        while pos > 0 and f.read(1) != "\n":
+            pos -= 1
+            f.seek(pos, os.SEEK_SET)
+        if pos > 0:
+            f.seek(pos, os.SEEK_SET)
+            f.truncate()
+
 @app.command()
 def track(message: str = None, m: str = None, ticket: str = None, t: str = None, past: bool = False, p: bool = False):
     message = message or m
@@ -64,6 +76,9 @@ def show():
 def clear():
     os.remove(os.path.join(config_data["output_directory"], "tracks.csv")) 
 
+@app.command()
+def pop():
+    remove_last_track()
 
 def run() -> None:
     app()
