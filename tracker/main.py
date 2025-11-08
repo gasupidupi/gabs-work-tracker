@@ -67,11 +67,13 @@ def show():
             
 @app.command()
 def clear():
-    os.remove(os.path.join(config_data["output_directory"], "tracks.csv")) 
+    os.remove(os.path.join(config_data["output_directory"], "tracks.csv"))
+    print('Removed all tracks.')
 
 @app.command()
 def pop():
     remove_last_track()
+    print('Removed last track.')
 
 def run() -> None:
     app()
