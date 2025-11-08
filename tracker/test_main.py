@@ -39,8 +39,6 @@ class TestMain(unittest.TestCase):
         # Assert
         mock_add_track.assert_has_calls([call('09/04/2013', '08:30', '09:05', 'GWT-001', 'Running this test')])
 
-
-
     @patch("builtins.open")
     @patch("yaml.safe_dump")
     @patch("main.config_data", {"output_directory": "C:\\previous\\output\\directory"})
@@ -68,4 +66,12 @@ class TestMain(unittest.TestCase):
 
         # Assert
         mock_remove.assert_called_once_with("C:\\test\\output\\directory\\tracks.csv")
+
+    @patch("main.remove_last_track")
+    def test_pop_removes_last_track(self, mock_remove_last_track):
+        # Act
+        pop()
+
+        # Assert
+        mock_remove_last_track.assert_called()
     

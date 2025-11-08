@@ -15,12 +15,10 @@ def get_input(text):
 def add_track(date, start, end, ticket, message):
     with open(os.path.join(config_data["output_directory"], "tracks.csv"), "a") as f:
         f.write(";".join([date, start, end, ticket, message]) + "\n")
-    f.close()
 
 def safe_config(config_data):
     with open(importlib.resources.files("tracker").joinpath("config.yml"), "w") as f:
         yaml.safe_dump(config_data, f)
-    f.close()
 
 def get_last_track():
     with open(os.path.join(config_data["output_directory"], "tracks.csv"), "r") as f:
@@ -29,16 +27,11 @@ def get_last_track():
         return line
 
 def remove_last_track():
-    # https://stackoverflow.com/a/10289740
     with open(os.path.join(config_data["output_directory"], "tracks.csv"), "r") as f:
-        f.seek(0, os.SEEK_END)
-        pos = f.tell() - 1
-        while pos > 0 and f.read(1) != "\n":
-            pos -= 1
-            f.seek(pos, os.SEEK_SET)
-        if pos > 0:
-            f.seek(pos, os.SEEK_SET)
-            f.truncate()
+        lines = f.readlines()
+    with open(os.path.join(config_data["output_directory"], "tracks.csv"), "w") as f:
+        for line in lines[:-1]:
+            f.writelines(line)
 
 @app.command()
 def track(message: str = None, m: str = None, ticket: str = None, t: str = None, past: bool = False, p: bool = False):
